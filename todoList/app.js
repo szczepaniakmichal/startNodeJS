@@ -44,6 +44,32 @@ const handleDate = (type, title) => {
             return console.log(`Pozycja ${title} nie istnieje, wiec nie moge jej usunac`.red)
         }
     }
+
+    switch (type) {
+        case 1:
+            const id = tasks.length + 1;
+            tasks.push({id, title});
+            const dataJSON = JSON.stringify(tasks);
+            fs.writeFileSync('datadb.json', dataJSON);
+            console.log(`Pozycja "${title}" została dodana`.green);
+            break;
+
+        case 2:
+            //szukamy indexu
+            // usuwamy ten index
+            //zamieniamy na stringa
+            //usuniecie z pliku
+            //jeszcze trzeba tu gdzieś wkleić naprawe indexu :)
+            console.log('usuwam zadanie');
+
+            break;
+
+        case 3:
+            //jesli sa taski to
+            //iteruj po obiekcie
+            //zrob warunek zeby parzyste byly w innym kolorze niz niepazyste indexy
+            console.log('wyswietlam liste');
+    }
 };
 
 handleCommand(command);
