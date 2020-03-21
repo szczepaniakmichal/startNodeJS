@@ -36,6 +36,14 @@ const handleDate = (type, title) => {
     // data = data.toString();
     let tasks = JSON.parse(data);
 
+    if (type === 1 || type === 2) {
+        let isExisted = tasks.find(task => task.title === title) ? true : false;
+        if (type === 1 && isExisted) {
+            return console.log(`Pozycja ${title} już jest na liscie`.red);
+        } else if (type === 2 && !isExisted) {
+            return console.log(`Pozycja ${title} nie istnieje, wiec nie moge jej usunac`.red)
+        }
+    }
 };
 
 handleCommand(command);
